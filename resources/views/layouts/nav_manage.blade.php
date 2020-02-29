@@ -18,9 +18,9 @@
       Administration
     </p>
     <ul class="menu-list">
-      <li><a href="#" class="#">Manage Users</a></li>
+      <li><a href="{{ route('manage.users.index') }}" class="#">Manage Users</a></li>
       <li>
-        <a class="has-submenu ">Roles &amp; Permissions</a>
+        <a class="has-submenu" href="{{ route('manage.permissions.index') }}">Roles &amp; Permissions</a>
         <ul class="submenu">
           <li><a href="#" class="">Roles</a></li>
           <li><a href="#" class="">Permissions</a></li>

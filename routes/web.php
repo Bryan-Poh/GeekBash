@@ -26,5 +26,7 @@ Route::group(['middleware' => 'role:superadministrator|administrator|editor|auth
 	Route::group(['prefix' => 'manage', 'as' => 'manage.'], function () {
 		Route::get('/', 'ManageController@index');
 		Route::get('/dashboard', 'ManageController@dashboard')->name('dashboard');
+		Route::resource('/users', 'UserController');
+		Route::resource('/permissions', 'PermissionController');
 	});
 });

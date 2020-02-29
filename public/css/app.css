@@ -20771,3 +20771,27 @@ html {
   background-color: white;
 }
 
+.main-content {
+  top: 4rem;
+  right: 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .main-content {
+    position: absolute;
+    left: 200px;
+  }
+}
+
+hr {
+  background-color: grey;
+  border: none;
+  display: block;
+  height: 1px;
+  margin: 1.5rem 0;
+}
+
+.flex-container {
+  margin: 10px 25px;
+}
+
