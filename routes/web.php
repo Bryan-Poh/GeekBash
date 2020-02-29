@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/event',  'EventController@index')->name('event');
+
+
+Route::group(['middleware' => 'role:superadministrator|administrator|editor|author|contributor'], function () {
+	Route::group(['prefix' => 'manage', 'as' => 'manage.'], function () {
+		Route::get('/', 'ManageController@index');
+		Route::get('/dashboard', 'ManageController@dashboard')->name('dashboard');
+	});
+});
