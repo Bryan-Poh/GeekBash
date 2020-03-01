@@ -7,6 +7,9 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+window.Slug = require('slug');
+
+Slug.defaults.mode = 'rfc3986';
 import Buefy from 'buefy';
 import 'buefy/dist/buefy.css'
 
@@ -24,6 +27,7 @@ Vue.use(Buefy);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('slug-widget', require('./components/slugWidget.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -31,6 +35,6 @@ Vue.use(Buefy);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+// const app = new Vue({
+//     el: '#app',
+// });

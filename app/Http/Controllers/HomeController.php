@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use LaraFlash;
 
 class HomeController extends Controller
-{
-    /**
+
+{    /**
      * Create a new controller instance.
      *
      * @return void
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        LaraFlash::success('Congratulations, we did it');
         return view('home');
     }
 }

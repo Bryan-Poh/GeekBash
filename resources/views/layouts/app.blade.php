@@ -27,5 +27,10 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    @include('notifications.toast')
+    @yield('scripts')
 </body>
 </html>

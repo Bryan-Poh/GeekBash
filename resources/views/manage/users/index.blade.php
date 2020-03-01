@@ -1,9 +1,9 @@
 @extends('layouts.manage')
 
 @section('content')
-	<div class="container">
-		<div class="columns">
-			<div class="column is-8">
+	<div class="flex-container">
+		<div class="columns m-t-10">
+			<div class="column">
 				<h1 class="title">Mange Users</h1>
 			</div>
 			<div class="column">

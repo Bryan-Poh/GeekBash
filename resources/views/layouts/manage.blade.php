@@ -10,7 +10,10 @@
     <title>{{ config('app.name', 'Laravel') }} - Management</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <script src="{{ asset('js/tinymceScript.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -29,5 +32,10 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Scripts -->
+    <!-- <script src="{{ asset('js/app.js') }}"></script> -->
+    @include('notifications.toast')
+    @yield('scripts')
 </body>
 </html>

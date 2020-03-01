@@ -11,7 +11,7 @@
       Content
     </p>
     <ul class="menu-list">
-      <li><a href="#" class="#">Blog Posts</a></li>
+      <li><a href="{{ route('manage.posts.index') }}" class="#">Blog Posts</a></li>
     </ul>
 
     <p class="menu-label">
