@@ -25,8 +25,11 @@
           <b-field class="m-t-40">
             <b-input type="textarea"
                 placeholder="Compose your post here..." rows="20"
+                >
+<!--             <b-input type="textarea"
+                placeholder="Compose your post here..." rows="20"
                 id="editor" name="editor">
-            </b-input>
+             -->            </b-input>
           </b-field>
         </div> <!-- end of .column.is-three-quarters -->
 
@@ -42,7 +45,7 @@
                   </p> -->
                 </div>
               </div>
-            </div>
+            </div> <!-- end of widget-area -->
             <div class="post-status-widget widget-area">
               <div class="status">
                 <!-- <div class="status-icon">
@@ -54,16 +57,14 @@
                   <p>A Few Minutes Ago</p>
                 </div>
               </div>
-            </div>
+            </div><!-- end of widget-area -->
             <div class="publish-buttons-widget widget-area">
-              <div class="secondary-action-button">
-                <input class="button is-info is-outlined is-fullwidth" value="Save Draft"></input>
-              </div>
               <div class="primary-action-button">
-                <input class="button is-primary is-fullwidth" value="Publish"></input>
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                <button type="submit" class="button is-primary is-fullwidth">Publish</button>
               </div>
-            </div>
-        </div>
+            </div> <!-- end of widget-area -->
+          </div>
         </div> <!-- end of .column.is-one-quarter -->
       </div>
     </form>

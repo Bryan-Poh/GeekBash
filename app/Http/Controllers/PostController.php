@@ -40,7 +40,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validateWith([
+            'title' => 'required|max:255',
+            'slug' => 'required',
+            'content' => 'required'
+        ]);
+
+        $post = new Post();
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->content = $request->content;
+        $post->excerpt = str_limit($request->content, 30);
+        $post->author_id = auth()->user()->id;
+
+        $post->save();
+
+        return view('manage.posts.index');
     }
 
     /**
