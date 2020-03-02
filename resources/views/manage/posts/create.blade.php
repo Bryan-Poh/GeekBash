@@ -9,12 +9,12 @@
     </div>
     <hr class="m-t-0">
 
-    <form action="{{route('manage.posts.store')}}" method="POST">
+    <form method="POST" action="{{route('manage.posts.store')}}">
       @csrf
       <div class="columns">
         <div class="column is-three-quarters-desktop is-three-quarters-tablet">
           <b-field>
-            <b-input type="text" placeholder="Title Of Post" size="is-large" v-model="title">
+            <b-input type="text" placeholder="Title Of Post" size="is-large" v-model="title" name="title">
             </b-input>
           </b-field>
 
@@ -23,13 +23,8 @@
           
           <p class="m-t-20"><span style="color: red">*</span> Tip! Compose your post in fullscreen! <b><i>ctrl+shift+F</i></b></p>
           <b-field class="m-t-40">
-            <b-input type="textarea"
-                placeholder="Compose your post here..." rows="20"
-                >
-<!--             <b-input type="textarea"
-                placeholder="Compose your post here..." rows="20"
-                id="editor" name="editor">
-             -->            </b-input>
+            <b-input type="textarea" placeholder="Compose your post here..." rows="20" name="content" id="post-editor">
+            </b-input>
           </b-field>
         </div> <!-- end of .column.is-three-quarters -->
 

@@ -38,6 +38,15 @@ html{
 	background-color: #f2c333;
 }
 
+.is-secondary{
+	background-color: rgba(68, 108, 179, 1);
+	color: white;
+
+	.title, .subtitle{
+		color: white;
+	}
+}
+
 // .navbar-item{
 // 	color: grey;
 // }

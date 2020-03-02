@@ -33,6 +33,13 @@
 						<a href="#" class="button is-primary">Login</a>
 						<a href="#" class="button is-light">Register for an account</a>
 					@else
+            <div class="current-date m-r-20">
+              {{ now()->format('l, d F Y') }}
+              <span class="icon">
+                <i class="far fa-calendar-alt"></i>
+              </span>
+            </div>
+
 						<div class="navbar-item has-dropdown is-hoverable">
 			        <a class="navbar-link">
 			          Hey {{Auth::user()->name}}

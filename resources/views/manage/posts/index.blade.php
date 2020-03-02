@@ -17,7 +17,7 @@
         <table class="table is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th>ID</th>
+              <th>#</th>
               <th>Title</th>
               <th>Excerpt</th>
               <th>Comments</th>
@@ -28,14 +28,17 @@
         
           <tbody>
             @foreach($posts as $post)
-            <tr>
-              <th>{{ $post->id }}</th>
-              <td><a href="{{ $post->slug }}">{{ $post->title }}</a></td>
-              <td>{{ $post->excerpt }}</td>
-              <td>{{ $post->comment_count }}</td>
-              <td>{{ $post->published_at->format('F d, Y H:i:s') }}</td>
-              <td><a href="{{ route('manage.posts.edit', $post->id) }}" class="button is-outlined">Edit</a></td>
-            </tr>
+              @if($post->author_id == Auth::user()->id)
+              <tr>
+                <th>{{ $loop->iteration }}</th>
+                <td><a href="{{ $post->slug }}">{{ $post->title }}</a></td>
+                <!-- <td>{{ strip_tags($post->content) }}</td> -->
+                <td>{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</td>
+                <td>{{ $post->comment_count }}</td>
+                <td>{{ $post->published_at->format('F d, Y H:i:s') }}</td>
+                <td><a href="{{ route('manage.posts.edit', $post->id) }}" class="button is-info">Edit</a> <a href="{{ route('manage.posts.destroy', $post->id) }}" class="button is-danger">Delete</a></td>
+              </tr>
+              @endif
             @endforeach
           </tbody>
         </table>

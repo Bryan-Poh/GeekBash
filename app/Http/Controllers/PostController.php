@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Auth;
+use Carbon;
+
 use App\Post;
 
 class PostController extends Controller
@@ -50,12 +54,14 @@ class PostController extends Controller
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->content = $request->content;
-        $post->excerpt = str_limit($request->content, 30);
-        $post->author_id = auth()->user()->id;
+        $post->excerpt = Str::limit($request->content, 20);
+        $post->author_id = Auth::user()->id;
+        $post->published_at = Carbon\Carbon::now();;
 
         $post->save();
 
-        return view('manage.posts.index');
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        return view('manage.posts.index', compact(['posts']));
     }
 
     /**
