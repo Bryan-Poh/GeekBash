@@ -1,6 +1,3 @@
-html{
-	background-color: whitesmoke !important;
-}
 .dropdown{
 	position: relative;
 
@@ -46,6 +43,12 @@ html{
 		color: white;
 	}
 }
+
+.side-menu{
+	box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+
+
 
 // .navbar-item{
 // 	color: grey;

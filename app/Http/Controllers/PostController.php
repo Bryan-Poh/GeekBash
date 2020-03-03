@@ -8,6 +8,7 @@ use Auth;
 use Carbon;
 
 use App\Post;
+use App\User;
 
 class PostController extends Controller
 {
@@ -44,24 +45,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateWith([
-            'title' => 'required|max:255',
-            'slug' => 'required',
-            'content' => 'required'
-        ]);
+      $this->validateWith([
+          'title' => 'required|max:255',
+          'slug' => 'required',
+          'content' => 'required'
+      ]);
 
-        $post = new Post();
-        $post->title = $request->title;
-        $post->slug = $request->slug;
-        $post->content = $request->content;
-        $post->excerpt = Str::limit($request->content, 20);
-        $post->author_id = Auth::user()->id;
-        $post->published_at = Carbon\Carbon::now();;
+      $post = new Post();
+      $post->title = $request->title;
+      $post->slug = $request->slug;
+      $post->content = $request->content;
+      $post->excerpt = Str::limit($request->content, 100);
+      $post->author_id = Auth::user()->id;
+      $post->published_at = Carbon\Carbon::now();
 
-        $post->save();
+      $post->save();
 
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
-        return view('manage.posts.index', compact(['posts']));
+      $posts = Post::orderBy('id', 'desc')->paginate(10);
+      return view('manage.posts.index', compact(['posts']));
     }
 
     /**
@@ -72,7 +73,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+      $post = Post::where('id', $id)->first();
+      $user = User::all();
+      return view('content.posts.show', compact(['post', 'user']));
     }
 
     /**
@@ -83,7 +86,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+    	$post = Post::where('id', $id)->first();
+    	return view('manage.posts.edit', compact(['post']));
     }
 
     /**
@@ -95,7 +99,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validateWith([
+          'title' => 'required|max:255',
+          'content' => 'required'
+      ]);
+
+      $post = Post::findOrFail($id);
+      $post->title = $request->title;
+      $post->content = $request->content;
+      $post->excerpt = Str::limit($request->content, 20);
+
+      $post->save();
+
+      $posts = Post::orderBy('id', 'desc')->paginate(10);
+      return view('manage.posts.index', compact(['posts']));
     }
 
     /**
@@ -106,7 +123,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+     $post = Post::findOrFail($id);
+     $post->delete();
+
+     $posts = Post::orderBy('id', 'desc')->paginate(10);
+     return view('manage.posts.index', compact(['posts']));
     }
 
     public function apiCheckUnique(Request $request)

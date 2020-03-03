@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use LaraFlash;
+use App\Post;
+use App\User;
+use Carbon;
+
 
 class HomeController extends Controller
 
@@ -24,7 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        LaraFlash::success('Congratulations, we did it');
-        return view('home');
+        $posts = Post::all();
+        $users = User::all();
+        return view('home', compact(['posts', 'users']));
     }
 }

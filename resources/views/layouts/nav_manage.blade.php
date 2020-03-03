@@ -14,6 +14,10 @@
       <li><a href="{{ route('manage.posts.index') }}" class="#">Blog Posts</a></li>
     </ul>
 
+    <ul class="menu-list">
+      <li><a href="#" class="#">All Blog Posts</a></li>
+    </ul>
+
     <p class="menu-label">
       Administration
     </p>

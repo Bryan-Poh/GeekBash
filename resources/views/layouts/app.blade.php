@@ -28,6 +28,8 @@
         </main>
     </div>
 
+    @include('layouts.footer')
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     @include('notifications.toast')

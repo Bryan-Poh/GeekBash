@@ -36,7 +36,17 @@
                 <td>{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</td>
                 <td>{{ $post->comment_count }}</td>
                 <td>{{ $post->published_at->format('F d, Y H:i:s') }}</td>
-                <td><a href="{{ route('manage.posts.edit', $post->id) }}" class="button is-info">Edit</a> <a href="{{ route('manage.posts.destroy', $post->id) }}" class="button is-danger">Delete</a></td>
+                <td>
+                	<div class="buttons">
+	                	<a href="{{ route('manage.posts.edit', $post->id) }}" class="button is-info">Edit</a>
+	                	<form method="POST" action="{{ route('manage.posts.destroy', $post->id) }}">
+								        @csrf
+								        {{ method_field('DELETE') }}
+
+								        <input onclick="return confirm('Are you sure you want to delete post: {{ $post->title }}?')" type="submit" class="button is-danger" value="Delete"></input>
+								    </form>
+							  	</div>
+              	</td>
               </tr>
               @endif
             @endforeach

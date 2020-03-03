@@ -50,11 +50,11 @@
 	</section>
 
 	<div class="columns">
-		<div class="column is-6">
+		<div class="column is-half">
 			<div class="card events-card">
 				<header class="card-header">
 					<p class="card-header-title">
-						Events
+						Notifications
 					</p>
 					<a href="#" class="card-header-icon" aria-label="more options">
 						<span class="icon">
@@ -71,46 +71,38 @@
 									<td>Lorum ipsum dolem aire</td>
 									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
 								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<footer class="card-footer">
+					<a href="#" class="card-footer-item">View All</a>
+				</footer>
+			</div>
+		</div>
+		<div class="column is-half">
+			<div class="card events-card">
+				<header class="card-header">
+					<p class="card-header-title">
+						Featuered Posts
+					</p>
+					<a href="#" class="card-header-icon" aria-label="more options">
+						<span class="icon">
+							<i class="fas fa-chevron-down"></i>
+						</span>
+					</a>
+				</header>
+				<div class="card-table">
+					<div class="content">
+						<table class="table is-fullwidth is-striped">
+							<tbody>
 								<tr>
 									<td width="5%"><i class="far fa-bell"></i></td>
 									<td>Lorum ipsum dolem aire</td>
 									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
 								</tr>
-								<tr>
-									<td width="5%"><i class="far fa-bell"></i></td>
-									<td>Lorum ipsum dolem aire</td>
-									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-								</tr>
-								<tr>
-									<td width="5%"><i class="far fa-bell"></i></td>
-									<td>Lorum ipsum dolem aire</td>
-									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-								</tr>
-								<tr>
-									<td width="5%"><i class="far fa-bell"></i></td>
-									<td>Lorum ipsum dolem aire</td>
-									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-								</tr>
-								<tr>
-									<td width="5%"><i class="far fa-bell"></i></td>
-									<td>Lorum ipsum dolem aire</td>
-									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-								</tr>
-								<tr>
-									<td width="5%"><i class="far fa-bell"></i></td>
-									<td>Lorum ipsum dolem aire</td>
-									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-								</tr>
-								<tr>
-									<td width="5%"><i class="far fa-bell"></i></td>
-									<td>Lorum ipsum dolem aire</td>
-									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-								</tr>
-								<tr>
-									<td width="5%"><i class="far fa-bell"></i></td>
-									<td>Lorum ipsum dolem aire</td>
-									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
-								</tr>
+
 							</tbody>
 						</table>
 					</div>
@@ -121,4 +113,5 @@
 			</div>
 		</div>
 	</div>
+
 	@endsection

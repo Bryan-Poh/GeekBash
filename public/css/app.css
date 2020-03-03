@@ -23232,10 +23232,6 @@ MIT (https://github.com/Wikiki/bulma-steps/blob/master/LICENSE)
   }
 }
 
-html {
-  background-color: whitesmoke !important;
-}
-
 .dropdown {
   position: relative;
 }
@@ -23281,6 +23277,10 @@ html {
 .is-secondary .title,
 .is-secondary .subtitle {
   color: white;
+}
+
+.side-menu {
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
 }
 
 .m-t-5 {

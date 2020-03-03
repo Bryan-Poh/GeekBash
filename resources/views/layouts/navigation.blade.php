@@ -1,6 +1,6 @@
 <nav class="navbar has-shadow p-l-100 p-r-100" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{route('home')}}">
+    <a class="navbar-item" href="{{ route('home') }}">
       <img src="{{ asset('images/geekbash.png') }}" alt="GeekBash Logo">
     </a>
 
@@ -30,8 +30,8 @@
       <div class="navbar-item">
         <div class="buttons">
           @if(Auth::guest())
-						<a href="#" class="button is-primary">Login</a>
-						<a href="#" class="button is-light">Register for an account</a>
+						<a href="{{ route('login') }}" class="button is-primary">Login</a>
+						<a href="{{ route('register') }}" class="button is-light">Register for an account</a>
 					@else
             <div class="current-date m-r-20">
               {{ now()->format('l, d F Y') }}

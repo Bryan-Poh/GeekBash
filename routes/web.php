@@ -11,13 +11,15 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('/', 'HomeController@index')->name('home');
 
 // Route::get('/event',  'EventController@index')->name('event');
 
@@ -31,3 +33,11 @@ Route::group(['middleware' => 'role:superadministrator|administrator|editor|auth
 		Route::resource('/posts', 'PostController');
 	});
 });
+
+// Route::group(['prefix' => 'content', 'as' => 'content.'], function () {
+// 	Route::get('/', 'ManageController@index');
+// 	Route::get('/dashboard', 'ManageController@dashboard')->name('dashboard');
+// 	Route::resource('/users', 'UserController');
+// 	Route::resource('/permissions', 'PermissionController');
+// 	Route::resource('/posts', 'PostController');
+// });
