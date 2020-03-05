@@ -19,6 +19,7 @@
 					<thead>
 						<tr>
 							<th>ID</th>
+							<th>Avatar</th>
 							<th>Name</th>
 							<th>Email</th>
 							<th>Date Created</th>
@@ -30,6 +31,7 @@
 						@foreach($users as $user)
 						<tr>
 							<th>{{ $user->id }}</th>
+							<td><img src="{{ asset('images/'.$user->image) }}" alt="User Profile Image" class="manage-user-image"></td>
 							<td>{{ $user->name }}</td>
 							<td>{{ $user->email }}</td>
 							<td>{{ $user->created_at->toFormattedDateString() }}</td>

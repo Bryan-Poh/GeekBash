@@ -21,7 +21,27 @@
           <slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @slug-changed="updateSlug" @copied="slugCopied"></slug-widget>
           <input type="hidden" v-model="slug" name="slug" />
           
-          <p class="m-t-20"><span style="color: red">*</span> Tip! Compose your post in fullscreen! <b><i>ctrl+shift+F</i></b></p>
+          <div class="field is-horizontal is-pulled-left m-t-30">
+            <div class="field-label ">
+              <label class="label">Category:</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select name="category_id">
+                      @foreach($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <br>
+          <p class="m-t-20 is-pulled-right "><span style="color: red">*</span> Tip! Compose your post in fullscreen! <b><i>ctrl+shift+F</i></b></p>
           <b-field class="m-t-40">
             <b-input type="textarea" placeholder="Compose your post here..." rows="20" name="content" id="post-editor">
             </b-input>

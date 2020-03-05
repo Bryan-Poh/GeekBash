@@ -14,15 +14,15 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item ">
-        Learn
+        Featured
       </a>
 
       <a class="navbar-item ">
-        Discuss
+        Tutorials
       </a>
 
       <a class="navbar-item ">
-        Share
+        Tech
       </a>
     </div>
 

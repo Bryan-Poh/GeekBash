@@ -43,13 +43,13 @@
 			<div class="tile is-parent">
 				<article class="tile is-child box">
 					<p class="title">19</p>
-					<p class="subtitle">Exceptions</p>
+					<p class="subtitle">Your Total Views</p>
 				</article>
 			</div>
 		</div>
 	</section>
 
-	<div class="columns">
+	<div class="columns is-multiline">
 		<div class="column is-half">
 			<div class="card events-card">
 				<header class="card-header">
@@ -85,7 +85,7 @@
 			<div class="card events-card">
 				<header class="card-header">
 					<p class="card-header-title">
-						Featuered Posts
+						Featured Posts
 					</p>
 					<a href="#" class="card-header-icon" aria-label="more options">
 						<span class="icon">
@@ -112,6 +112,71 @@
 				</footer>
 			</div>
 		</div>
+
+		<div class="column is-half">
+			<div class="card events-card">
+				<header class="card-header">
+					<p class="card-header-title">
+						Most Popular Posts
+					</p>
+					<a href="#" class="card-header-icon" aria-label="more options">
+						<span class="icon">
+							<i class="fas fa-chevron-down"></i>
+						</span>
+					</a>
+				</header>
+				<div class="card-table">
+					<div class="content">
+						<table class="table is-fullwidth is-striped">
+							<tbody>
+								<tr>
+									<td width="5%"><i class="far fa-bell"></i></td>
+									<td>Lorum ipsum dolem aire</td>
+									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<footer class="card-footer">
+					<a href="#" class="card-footer-item">View All</a>
+				</footer>
+			</div>
+		</div>
+
+		<div class="column is-half">
+			<div class="card events-card">
+				<header class="card-header">
+					<p class="card-header-title">
+						Top 10 Active Authors
+					</p>
+					<a href="#" class="card-header-icon" aria-label="more options">
+						<span class="icon">
+							<i class="fas fa-chevron-down"></i>
+						</span>
+					</a>
+				</header>
+				<div class="card-table">
+					<div class="content">
+						<table class="table is-fullwidth is-striped">
+							<tbody>
+								<tr>
+									<td width="5%"><i class="far fa-bell"></i></td>
+									<td>Lorum ipsum dolem aire</td>
+									<td class="level-right"><a class="button is-small is-primary" href="#">Action</a></td>
+								</tr>
+
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<footer class="card-footer">
+					<a href="#" class="card-footer-item">View All</a>
+				</footer>
+			</div>
+		</div>
+
 	</div>
 
 	@endsection

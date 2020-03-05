@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
 Auth::routes();
 
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/', 'HomeController@index')->name('home');
@@ -31,6 +28,7 @@ Route::group(['middleware' => 'role:superadministrator|administrator|editor|auth
 		Route::resource('/users', 'UserController');
 		Route::resource('/permissions', 'PermissionController');
 		Route::resource('/posts', 'PostController');
+		Route::resource('/categories', 'CategoryController');
 	});
 });
 

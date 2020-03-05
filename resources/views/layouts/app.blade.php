@@ -18,9 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
+        @include('sweetalert::alert')
+
         @include('layouts.navigation')
 
         <main class="py-4">
@@ -32,7 +35,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    @include('notifications.toast')
     @yield('scripts')
+
+    <script>
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                 toast('{{ $error }}','error');
+            @endforeach
+        @endif
+    </script>
 </body>
 </html>

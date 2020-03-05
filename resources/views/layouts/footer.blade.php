@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="column has-text-centered has-text-right-tablet">
-                <p class="subtitle is-6">&copy; twentytwenty  - <a href="#">Bryan Poh</a></p>
+                <p class="subtitle is-6">&copy;GeekBash | twentytwenty  - <a href="#">Bryan Poh</a></p>
             </div> 
         </div>
      </div>          

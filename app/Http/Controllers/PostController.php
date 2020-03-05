@@ -9,6 +9,7 @@ use Carbon;
 
 use App\Post;
 use App\User;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -24,7 +25,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('id', 'desc')->paginate(10);
-        return view('manage.posts.index', compact(['posts']));
+        $categories = Category::all();
+        return view('manage.posts.index', compact(['posts', 'categories']));
     }
 
     /**
@@ -34,7 +36,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('manage.posts.create');
+      $categories = Category::all();
+      return view('manage.posts.create', compact(['categories']));
     }
 
     /**
@@ -48,12 +51,14 @@ class PostController extends Controller
       $this->validateWith([
           'title' => 'required|max:255',
           'slug' => 'required',
+          'category_id' => 'required|integer',
           'content' => 'required'
       ]);
 
       $post = new Post();
       $post->title = $request->title;
       $post->slug = $request->slug;
+      $post->category_id = $request->category_id;
       $post->content = $request->content;
       $post->excerpt = Str::limit($request->content, 100);
       $post->author_id = Auth::user()->id;
@@ -62,7 +67,9 @@ class PostController extends Controller
       $post->save();
 
       $posts = Post::orderBy('id', 'desc')->paginate(10);
-      return view('manage.posts.index', compact(['posts']));
+      $categories = Category::all();
+
+      return view('manage.posts.index', compact(['posts', 'categories']))->with('success', 'Post Created Successfully!');
     }
 
     /**
@@ -126,8 +133,9 @@ class PostController extends Controller
      $post = Post::findOrFail($id);
      $post->delete();
 
+     $categories = Category::all();
      $posts = Post::orderBy('id', 'desc')->paginate(10);
-     return view('manage.posts.index', compact(['posts']));
+     return view('manage.posts.index', compact(['posts', 'categories']));
     }
 
     public function apiCheckUnique(Request $request)

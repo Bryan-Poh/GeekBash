@@ -5,6 +5,13 @@
     </p>
     <ul class="menu-list">
       <li><a href="{{route('manage.dashboard')}}" class="">Dashboard</a></li>
+      <li>
+        <a class="has-submenu" href="{{ route('manage.permissions.index') }}">Manage</a>
+        <ul class="submenu">
+          <li><a href="#" class="">Featured Posts</a></li>
+          <li><a href="{{ route('manage.categories.index') }}" class="">Post Categories</a></li>
+        </ul>
+      </li>
     </ul>
 
     <p class="menu-label">

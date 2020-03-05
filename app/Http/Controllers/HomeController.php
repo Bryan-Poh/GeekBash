@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use LaraFlash;
 use App\Post;
 use App\User;
+use App\Category;
 use Carbon;
+Use Alert;
+
 
 
 class HomeController extends Controller
@@ -18,7 +21,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -30,6 +33,8 @@ class HomeController extends Controller
     {
         $posts = Post::all();
         $users = User::all();
-        return view('home', compact(['posts', 'users']));
+        $categories = Category::all();
+
+        return view('home', compact(['posts', 'users', 'categories']));
     }
 }

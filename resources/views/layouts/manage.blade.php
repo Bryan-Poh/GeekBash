@@ -35,7 +35,14 @@
 
     <!-- Scripts -->
     <!-- <script src="{{ asset('js/app.js') }}"></script> -->
-    @include('notifications.toast')
+    {{-- @include('notifications.toast') --}}
     @yield('scripts')
+    <script>
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                 toast('{{ $error }}','error');
+            @endforeach
+        @endif
+    </script>
 </body>
 </html>

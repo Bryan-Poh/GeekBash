@@ -21,6 +21,8 @@
               <th>Title</th>
               <th>Excerpt</th>
               <th>Comments</th>
+              <th>Status</th>
+              <th>Category</th>
               <th>Published Date</th>
               <th>Actions</th>
             </tr>
@@ -35,7 +37,20 @@
                 <!-- <td>{{ strip_tags($post->content) }}</td> -->
                 <td>{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</td>
                 <td>{{ $post->comment_count }}</td>
-                <td>{{ $post->published_at->format('F d, Y H:i:s') }}</td>
+
+                @if($post->status == 1) 
+                  <td><span class="tag is-success">Published</span></td>
+                @elseif($post->status == 2)
+                  <td><span class="tag is-info">Unpublished</span></td>
+                @endif
+                
+                @foreach($categories as $category)
+                  @if($post->category_id == $category->id)
+                    <td><span class="tag is-light">{{ $category->name }}</span></td>
+                  @endif
+                @endforeach
+
+                <td>{{ $post->published_at->format('F d, Y H:i') }}</td>
                 <td>
                 	<div class="buttons">
 	                	<a href="{{ route('manage.posts.edit', $post->id) }}" class="button is-info">Edit</a>

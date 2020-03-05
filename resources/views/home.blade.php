@@ -5,13 +5,11 @@
   <div class="tile is-ancestor">
     <div class="tile is-4 is-vertical is-parent">
       <div class="tile is-child box">
-        <p class="title">One</p>
           <figure class="image">
             <a href=""><img src="../images/blank-post.png" alt=""></a>
           </figure>  
       </div>
       <div class="tile is-child box">
-        <p class="title">Two</p>
           <figure class="image">
             <a href=""><img src="../images/blank-post.png" alt=""></a>
           </figure> 
@@ -19,14 +17,12 @@
     </div>
     <div class="tile is-parent">
       <div class="tile is-child box">
-        <p class="title">Three</p>
         <figure class="image">
             <a href=""><img src="../images/blank-post.png" alt=""></a>
           </figure> 
       </div>
     </div>
   </div>
-    
   
   <!-- newsletter -->
   <section class="section">
@@ -62,7 +58,12 @@
       @foreach($posts as $post)
       <div class="tile is-parent">
         <article class="tile is-child box">
-          <p class="title is-5 is-spaced"><a href="{{ route('content.posts.show', $post->id) }}">{{ $post->title }}</a></p>
+
+          @foreach($categories as $category)
+            @if($post->category_id == $category->id)
+              <p class="title is-5 is-spaced"><a href="#">{{ $post->title }}</a><span class="tag is-primary">{{ $post->category->name }}</span></p>
+            @endif
+          @endforeach
           
           @foreach($users as $user)
             @if($post->author_id == $user->id)
@@ -75,6 +76,35 @@
       </div>
       @endforeach
     </div>
+  </div>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-parent is-8 is-multiline">
+      @foreach($posts as $post)
+      <article class="tile is-child box">
+        <p class="title">{{ $post->title }}</p>
+        <p class="subtitle">With some content</p>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+        </div>
+      </article>
+      @endforeach
+    </div>
+    <div class="tile is-parent">
+    <article class="tile is-child box">
+      <div class="content">
+        <p class="title">Tall column</p>
+        <p class="subtitle">With even more content</p>
+        <div class="content">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+          <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
+          <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+
   </div>
 </div>
 
