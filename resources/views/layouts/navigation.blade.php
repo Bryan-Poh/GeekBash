@@ -1,7 +1,7 @@
 <nav class="navbar has-shadow p-l-100 p-r-100" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ route('home') }}">
-      <img src="{{ asset('images/geekbash.png') }}" alt="GeekBash Logo">
+      <img src="{{ asset('images/geekbash-transparent.png') }}" alt="GeekBash Logo">
     </a>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

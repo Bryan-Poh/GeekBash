@@ -51,63 +51,65 @@
     </div>
   </section>
 
+  
+
   <!-- Articles -->
-  <div class="contiainer">
+  <div class="container">
     <h1 class="title">Recent Posts</h1>
-    <div class="tile is-ancestor">
+    <div class="columns is-multiline">
       @foreach($posts as $post)
-      <div class="tile is-parent">
-        <article class="tile is-child box">
-
+      <article class="column is-6">
+        <div class="box">
           @foreach($categories as $category)
-            @if($post->category_id == $category->id)
-              <p class="title is-5 is-spaced"><a href="#">{{ $post->title }}</a><span class="tag is-primary">{{ $post->category->name }}</span></p>
-            @endif
-          @endforeach
-          
-          @foreach($users as $user)
-            @if($post->author_id == $user->id)
-            <p class="subtitle is-7"><a href="">{{ $user->name }}</a> | {{ $post->published_at->format('d F Y') }}</p>
-            @endif
-          @endforeach
+          @if($post->category_id == $category->id)
+            <span class="tag is-primary">{{ $post->category->name }}</span>
+            <p class="title is-5 is-spaced m-t-10"><a href="#">{{ $post->title }}</a></p>
+          @endif
+        @endforeach
+        
+        @foreach($users as $user)
+          @if($post->author_id == $user->id)
+          <p class="subtitle is-7"><a href="">{{ $user->name }}</a> | {{ $post->published_at->format('d F Y') }}</p>
+          @endif
+        @endforeach
 
-          <p class="subtitle">{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</p>
-        </article>
-      </div>
-      @endforeach
-    </div>
-  </div>
-
-  <div class="tile is-ancestor">
-    <div class="tile is-parent is-8 is-multiline">
-      @foreach($posts as $post)
-      <article class="tile is-child box">
-        <p class="title">{{ $post->title }}</p>
-        <p class="subtitle">With some content</p>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+        {{-- <p class="subtitle">{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</p> --}}
         </div>
       </article>
       @endforeach
     </div>
-    <div class="tile is-parent">
-    <article class="tile is-child box">
-      <div class="content">
-        <p class="title">Tall column</p>
-        <p class="subtitle">With even more content</p>
-        <div class="content">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-          <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
-          <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>
-        </div>
+
+    <div class="columns">
+      {{-- main column --}}
+      <div class="column is-two-thirds is-multiline">
+        @foreach($posts as $post)
+          <article class="column is-12">
+            <div class="box">
+              @foreach($categories as $category)
+              @if($post->category_id == $category->id)
+                <span class="tag is-primary">{{ $post->category->name }}</span>
+                <p class="title is-5 is-spaced m-t-10"><a href="#">{{ $post->title }}</a></p>
+              @endif
+            @endforeach
+            
+            @foreach($users as $user)
+              @if($post->author_id == $user->id)
+              <p class="subtitle is-7"><a href="">{{ $user->name }}</a> | {{ $post->published_at->format('d F Y') }}</p>
+              @endif
+            @endforeach
+
+            {{-- <p class="subtitle">{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</p> --}}
+            </div>
+          </article>
+      @endforeach
       </div>
-    </article>
-  </div>
 
-
-  </div>
-</div>
-
+      {{-- side column --}}
+      <div class="column">
+        <p class="title is-5">CATEGORIES</p>
+      </div>
+    </div>
+  </div> <!-- end container -->
 
 
 @endsection

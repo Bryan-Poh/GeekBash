@@ -33,7 +33,7 @@
 				<article class="tile is-child box">
 					@foreach($posts as $post)
 						@if($post->author_id == Auth::user()->id)
-							<p class="title">{{ $posts->count()}}</p>
+							<p class="title">{{ $post->count() }}</p>
 							@break
 						@endif
 					@endforeach

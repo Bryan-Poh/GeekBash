@@ -21,15 +21,15 @@ class CreatePostsTable extends Migration
             $table->text('excerpt');
             $table->longText('content');
             $table->integer('status')->default(1);
+            $table->integer('category_id')->unsigned();
             $table->integer('type')->unsigned()->default(1);
             $table->bigInteger('comment_count')->unsigned()->default(0);
             $table->dateTime('published_at');   
 
             $table->timestamps();
 
-            $table->foreign('author_id')
-            ->references('id')->on('users')
-            ->onDelete('cascade');
+            // $table->foreign('author_id')
+            // ->references('id')->on('users');
         });
     }
 
