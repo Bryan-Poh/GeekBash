@@ -63,13 +63,13 @@
           @foreach($categories as $category)
           @if($post->category_id == $category->id)
             <span class="tag is-primary">{{ $post->category->name }}</span>
-            <p class="title is-5 is-spaced m-t-10"><a href="#">{{ $post->title }}</a></p>
+            <p class="title is-5 is-spaced m-t-10"><a href="{{ route('show_post', $post->slug) }}">{{ $post->title }}</a></p>
           @endif
         @endforeach
         
         @foreach($users as $user)
           @if($post->author_id == $user->id)
-          <p class="subtitle is-7"><a href="">{{ $user->name }}</a> | {{ $post->published_at->format('d F Y') }}</p>
+          <p class="subtitle is-7"><a href="#">{{ $user->name }}</a> | {{ $post->published_at->format('d F Y') }}</p>
           @endif
         @endforeach
 
@@ -88,7 +88,7 @@
               @foreach($categories as $category)
               @if($post->category_id == $category->id)
                 <span class="tag is-primary">{{ $post->category->name }}</span>
-                <p class="title is-5 is-spaced m-t-10"><a href="#">{{ $post->title }}</a></p>
+                <p class="title is-5 is-spaced m-t-10"><a href="{{ route('show_post', $post->slug) }}">{{ $post->title }}</a></p>
               @endif
             @endforeach
             

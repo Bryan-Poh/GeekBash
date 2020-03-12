@@ -22,6 +22,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['middleware' => 'role:superadministrator|administrator|editor|author|contributor'], function () {
+
+	Route::get('/post/{slug}', 'HomeController@show')->name('show_post');
+
+	//-----------------------------//
+	// 				Manage 							//
+	//---------------------------//
 	Route::group(['prefix' => 'manage', 'as' => 'manage.'], function () {
 		Route::get('/', 'ManageController@index');
 		Route::get('/dashboard', 'ManageController@dashboard')->name('dashboard');

@@ -37,4 +37,14 @@ class HomeController extends Controller
 
         return view('home', compact(['posts', 'users', 'categories']));
     }
+
+    public function show($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+        // dd($post);
+        $users = User::all();
+        $categories = Category::all();
+
+        return view('content.posts.show', compact(['post', 'users', 'categories']));
+    }
 }

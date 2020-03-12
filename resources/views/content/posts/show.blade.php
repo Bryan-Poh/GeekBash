@@ -18,7 +18,7 @@
           <div class="columns">
             <div class="column is-8 is-offset-2">
               <div class="content is-medium">
-                <h2 class="subtitle is-4">{{ $post-title }}</h2>
+                <h2 class="subtitle is-4">{{ $post->title }}</h2>
                 @foreach($users as $user)
                   @if($post->author_id == $user->id)
                   <h1 class="title"><a href="">{{ $user->name }}</a> | {{ $post->published_at->format('d F Y') }}</h1>

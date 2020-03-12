@@ -80,9 +80,9 @@ class PostController extends Controller
      */
     public function show($id)
     {
-      $post = Post::where('id', $id)->first();
-      $user = User::all();
-      return view('content.posts.show', compact(['post', 'user']));
+      // $post = Post::where('id', $id)->first();
+      // $user = User::all();
+      // return view('content.posts.show', compact(['post', 'user']));
     }
 
     /**
