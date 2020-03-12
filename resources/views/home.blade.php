@@ -57,25 +57,26 @@
   <div class="container">
     <h1 class="title">Recent Posts</h1>
     <div class="columns is-multiline">
-      @foreach($posts as $post)
-      <article class="column is-6">
-        <div class="box">
-          @foreach($categories as $category)
-          @if($post->category_id == $category->id)
-            <span class="tag is-primary">{{ $post->category->name }}</span>
-            <p class="title is-5 is-spaced m-t-10"><a href="{{ route('show_post', $post->slug) }}">{{ $post->title }}</a></p>
-          @endif
-        @endforeach
+      @foreach($recent_posts as $recent)
         
-        @foreach($users as $user)
-          @if($post->author_id == $user->id)
-          <p class="subtitle is-7"><a href="#">{{ $user->name }}</a> | {{ $post->published_at->format('d F Y') }}</p>
-          @endif
-        @endforeach
+          <article class="column is-6">
+            <div class="box">
+              @foreach($categories as $category)
+              @if($recent->category_id == $category->id)
+                <span class="tag is-primary">{{ $recent->category->name }}</span>
+                <p class="title is-5 is-spaced m-t-10"><a href="{{ route('show_post', $recent->slug) }}">{{ $recent->title }}</a></p>
+              @endif
+            @endforeach
+            
+            @foreach($users as $user)
+              @if($recent->author_id == $user->id)
+              <p class="subtitle is-7"><a href="#">{{ $user->name }}</a> | {{ $recent->published_at->format('d F Y') }}</p>
+              @endif
+            @endforeach
 
-        {{-- <p class="subtitle">{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</p> --}}
-        </div>
-      </article>
+            {{-- <p class="subtitle">{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</p> --}}
+            </div>
+          </article>
       @endforeach
     </div>
 

@@ -20,10 +20,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Route::get('/event',  'EventController@index')->name('event');
 
+Route::get('/post/{slug}', 'HomeController@show')->name('show_post');
 
 Route::group(['middleware' => 'role:superadministrator|administrator|editor|author|contributor'], function () {
 
-	Route::get('/post/{slug}', 'HomeController@show')->name('show_post');
 
 	//-----------------------------//
 	// 				Manage 							//
