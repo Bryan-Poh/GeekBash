@@ -9,7 +9,7 @@
     </div>
     <hr class="m-t-0">
 
-    <form action="{{route('manage.posts.update', $post->id)}}" method="POST">
+    <form action="{{route('manage.posts.update', $post->id)}}" method="POST" enctype="multipart/form-data">
     	{{method_field('PUT')}}
       @csrf
       <div class="columns">
@@ -19,13 +19,65 @@
 					  <input class="input" type="text" size="is-large" name="title" value="{{ $post->title }}" />
 					</div>
 
-          <div class="control m-t-20">
+          <div class="file has-name is-pulled-left m-t-30">
+            <div class="field-label">
+              <label class="label">Blog Cover Image:</label>
+            </div>
+            <div id="file-js-example" class="file has-name">
+              <label class="file-label">
+                <input class="file-input" type="file" name="image">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+                <span class="file-name">
+                  {{ $post->image }}
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field is-horizontal is-pulled-right m-t-30">
+            <div class="field-label ">
+              <label class="label">Category:</label>
+            </div>
+            <div class="field-body">
+              <div class="field is-narrow">
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select name="category_id">
+                      @foreach($categories as $category)
+                        @if($category->id == $post->category_id)
+                          <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                        @else
+                          <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endif
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div class="control m-t-20 m-b-50">
           	<label class="label">Slug</label>
 					  <input class="input" type="text" name="slug" value="{{ $post->slug }}" disabled />
 					</div>
-          <p class="m-t-20"><span style="color: red">*</span> Tip! Compose your post in fullscreen! <b><i>ctrl+shift+F</i></b></p>
-
-          <textarea type="textarea" rows="20" name="content" id="post-editor" value="{!! $post->content !!}"></textarea>
+         {{--  <p class="m-t-20"><span style="color: red">*</span> Tip! Compose your post in fullscreen! <b><i>ctrl+shift+F</i></b></p> --}}
+          
+            
+          
+          <b-field class="m-t-100">
+            <b-input type="textarea" rows="20" name="content" id="post-editor" value="{!! $post->content !!}">
+            </b-input>
+          </b-field> 
+          {{-- <textarea type="textarea" rows="20" name="content" id="post-editor" value="{!! $post->content !!}"></textarea> --}}
           </b-field>
 
         </div> <!-- end of .column.is-three-quarters -->
@@ -67,4 +119,16 @@
     </form>
 
   </div> <!-- end of .flex-container -->
+@endsection
+
+@section('scripts')
+<script>
+    const fileInput = document.querySelector('#file-js-example input[type=file]');
+    fileInput.onchange = () => {
+      if (fileInput.files.length > 0) {
+        const fileName = document.querySelector('#file-js-example .file-name');
+        fileName.textContent = fileInput.files[0].name;
+      }
+    }
+  </script>
 @endsection

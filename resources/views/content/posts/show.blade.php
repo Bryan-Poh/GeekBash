@@ -9,7 +9,7 @@
         <div class="columns">
           <div class="column is-8 is-offset-2">
             <figure class="image is-16by9">
-              <img src="../images/blank-post.png" alt="">
+              <img src="{{ asset('storage/image/'.$post->image .'.png') }}" alt="">
             </figure>
           </div>
         </div>

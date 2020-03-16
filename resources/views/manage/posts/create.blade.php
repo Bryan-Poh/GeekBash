@@ -9,7 +9,7 @@
     </div>
     <hr class="m-t-0">
 
-    <form method="POST" action="{{route('manage.posts.store')}}">
+    <form method="POST" action="{{route('manage.posts.store')}}" enctype="multipart/form-data">
       @csrf
       <div class="columns">
         <div class="column is-three-quarters-desktop is-three-quarters-tablet">
@@ -20,8 +20,30 @@
 
           <slug-widget url="{{url('/')}}" subdirectory="blog" :title="title" @slug-changed="updateSlug" @copied="slugCopied"></slug-widget>
           <input type="hidden" v-model="slug" name="slug" />
-          
-          <div class="field is-horizontal is-pulled-left m-t-30">
+
+          <div class="file has-name is-pulled-left m-t-30">
+            <div class="field-label">
+              <label class="label">Blog Cover Image:</label>
+            </div>
+            <div id="file-js-example" class="file has-name">
+              <label class="file-label">
+                <input class="file-input" type="file" name="image">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Choose a file…
+                  </span>
+                </span>
+                <span class="file-name">
+                  No file uploaded
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field is-horizontal is-pulled-right m-t-30">
             <div class="field-label ">
               <label class="label">Category:</label>
             </div>
@@ -39,10 +61,10 @@
               </div>
             </div>
           </div>
-          
+
           <br>
-          <p class="m-t-20 is-pulled-right "><span style="color: red">*</span> Tip! Compose your post in fullscreen! <b><i>ctrl+shift+F</i></b></p>
-          <b-field class="m-t-40">
+          {{-- <p class="m-t-20 is-pulled-right"><span style="color: red">*</span> Tip! Compose your post in fullscreen! <b><i>ctrl+shift+F</i></b></p> --}}
+          <b-field class="m-t-100">
             <b-input type="textarea" placeholder="Compose your post here..." rows="20" name="content" id="post-editor">
             </b-input>
           </b-field>
@@ -104,5 +126,15 @@
         }
       }
     });
+  </script>
+
+  <script>
+    const fileInput = document.querySelector('#file-js-example input[type=file]');
+    fileInput.onchange = () => {
+      if (fileInput.files.length > 0) {
+        const fileName = document.querySelector('#file-js-example .file-name');
+        fileName.textContent = fileInput.files[0].name;
+      }
+    }
   </script>
 @endsection
