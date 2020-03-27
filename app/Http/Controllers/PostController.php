@@ -63,7 +63,7 @@ class PostController extends Controller
       $post->title = $request->title;
       $post->slug = $request->slug;
       $post->category_id = $request->category_id;
-      $post->image = $request->imageName;
+      $post->image = $imageName;
       $post->content = $request->content;
       $post->excerpt = Str::limit($request->content, 100);
       $post->author_id = Auth::user()->id;
