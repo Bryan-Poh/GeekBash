@@ -180,7 +180,8 @@ return [
          * Third Party Providers...
          */
         Laratrust\LaratrustServiceProvider::class,
-        DevMarketer\LaraFlash\LaraFlashServiceProvider::class,
+        //DevMarketer\LaraFlash\LaraFlashServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -214,6 +215,7 @@ return [
         'File' => Illuminate\Support\Facades\File::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+        'Image' => Intervention\Imagae\Facades\Image::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Laratrust' => Laratrust\LaratrustFacade::class,

@@ -55,10 +55,15 @@ class PostController extends Controller
           'content' => 'required'
       ]);
 
+      if($request->hasFile('image')){
+        $imageName = $request->image->store('public/image');
+      }
+
       $post = new Post();
       $post->title = $request->title;
       $post->slug = $request->slug;
       $post->category_id = $request->category_id;
+      $post->image = $imageName;
       $post->content = $request->content;
       $post->excerpt = Str::limit($request->content, 100);
       $post->author_id = Auth::user()->id;
@@ -94,7 +99,8 @@ class PostController extends Controller
     public function edit($id)
     {
     	$post = Post::where('id', $id)->first();
-    	return view('manage.posts.edit', compact(['post']));
+      $categories = Category::all();
+    	return view('manage.posts.edit', compact(['post', 'categories']));
     }
 
     /**
@@ -108,13 +114,20 @@ class PostController extends Controller
     {
       $this->validateWith([
           'title' => 'required|max:255',
+          'category_id' => 'required|integer',
           'content' => 'required'
       ]);
 
+      if($request->hasFile('image')){
+        $imageName = $request->image->store('public/image');
+      }
+
       $post = Post::findOrFail($id);
       $post->title = $request->title;
+      $post->category_id = $request->category_id;
+      $post->image = $request->imageName;
       $post->content = $request->content;
-      $post->excerpt = Str::limit($request->content, 20);
+      $post->excerpt = Str::limit($request->content, 100);
 
       $post->save();
 
