@@ -125,7 +125,7 @@ class PostController extends Controller
       $post = Post::findOrFail($id);
       $post->title = $request->title;
       $post->category_id = $request->category_id;
-      $post->image = $request->imageName;
+      $post->image = $imageName;
       $post->content = $request->content;
       $post->excerpt = Str::limit($request->content, 100);
 

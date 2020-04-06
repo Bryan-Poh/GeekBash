@@ -22,8 +22,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/post/{slug}', 'HomeController@show')->name('show_post');
 
-Route::group(['middleware' => 'role:superadministrator|administrator|editor|author|contributor'], function () {
+Route::group(['prefix' => 'profile', 'as' => 'profile.'], function () {
+		Route::get('/user/{name}', 'UserProfileController@index')->name('index');
+		Route::post('/user/{name}', 'UserProfileController@update')->name('update');
+	});
 
+Route::group(['middleware' => 'role:superadministrator|administrator|editor|author|contributor'], function () {
 
 	//-----------------------------//
 	// 				Manage 							//

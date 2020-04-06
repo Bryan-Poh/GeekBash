@@ -31,7 +31,7 @@
 						@foreach($users as $user)
 						<tr>
 							<th>{{ $user->id }}</th>
-							<td><img src="{{ asset('images/'.$user->image) }}" alt="User Profile Image" class="manage-user-image"></td>
+							<td><img src="{{ Storage::url("{$user->image}") }}" alt="User Profile Image" class="manage-user-image" width="50px" height="50px"></td>
 							<td>{{ $user->name }}</td>
 							<td>{{ $user->email }}</td>
 							<td>{{ $user->created_at->toFormattedDateString() }}</td>

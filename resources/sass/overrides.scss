@@ -10,7 +10,6 @@ body::-webkit-scrollbar-thumb{
 	background: #f2c333;
 }
 
-
 .dropdown{
 	position: relative;
 
@@ -42,6 +41,12 @@ body::-webkit-scrollbar-thumb{
 
 .navbar-item img{
   min-height: 3.5rem;
+}
+
+.navbar-end .navbar-item .buttons a {
+  @media (max-width: 1024px) {
+		width: 100% !important;   
+	}   
 }
 
 .button.is-primary{

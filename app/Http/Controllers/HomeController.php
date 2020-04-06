@@ -42,7 +42,6 @@ class HomeController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->first();
-        // dd($post);
         $users = User::all();
         $categories = Category::all();
 

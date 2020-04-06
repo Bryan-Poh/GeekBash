@@ -25,7 +25,7 @@
               <th>Category</th>
               <th>Published Date</th>
               <th>Actions</th>
-            </tr>
+          </tr>
           </thead>
         
           <tbody>
@@ -33,7 +33,7 @@
               @if($post->author_id == Auth::user()->id)
               <tr>
                 <th>{{ $loop->iteration }}</th>
-                <td><a href="{{ $post->slug }}">{{ $post->title }}</a></td>
+                <td><a href="{{ route('show_post', $post->slug) }}">{{ $post->title }}</a></td>
                 <!-- <td>{{ strip_tags($post->content) }}</td> -->
                 <td>{{ substr(strip_tags($post->content),0, 80) }}{{ strlen(strip_tags($post->content)) > 80 ? '...' : ""}}</td>
                 <td>{{ $post->comment_count }}</td>
