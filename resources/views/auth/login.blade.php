@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="columns">
   <div class="column is-one-third is-offset-one-third m-t-100">
     <div class="card">
@@ -30,8 +29,6 @@
 
           </div>
 
-          <b-checkbox name="remember" class="m-t-20">Remember Me</b-checkbox>
-
           <button class="button is-success is-outlined is-fullwidth m-t-30">Log In</button>
         </form>
       </div> <!-- end of .card-content -->
@@ -39,13 +36,4 @@
     <h5 class="has-text-centered m-t-20"><a href="#" class="is-muted">Forgot Your Password?</a></h5>
   </div>
 </div>
-
-@endsection
-
-@section('scripts')
-  <script>
-    var app = new Vue({
-      el: '#app'
-    });
-  </script>
 @endsection
