@@ -1,7 +1,10 @@
 <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="{{ route('home') }}">
+    <a class="navbar-item is-hidden-mobile" href="{{ route('home') }}">
       <img src="{{ asset('images/geekbash-transparent.png') }}" alt="GeekBash Logo">
+    </a>
+    <a class="navbar-item is-hidden-tablet" href="{{ route('home') }}">
+      <img src="{{ asset('images/geekbash-icon.png') }}" alt="GeekBash Logo">
     </a>
 
     <a role="button" class="navbar-burger burger m-t-10" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
