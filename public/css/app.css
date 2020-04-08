@@ -23244,6 +23244,17 @@ body::-webkit-scrollbar-thumb {
   background: #f2c333;
 }
 
+.post-content ::-moz-selection {
+  /* Code for Firefox */
+  color: black;
+  background: yellow;
+}
+
+.post-content ::selection {
+  color: black;
+  background: yellow;
+}
+
 .dropdown {
   position: relative;
 }

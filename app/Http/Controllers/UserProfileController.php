@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
+use App\Category;
 use App\Role;
 use DB;
 use Session;
@@ -15,8 +17,10 @@ class UserProfileController extends Controller
 {
   public function index($name){
   	$user = User::where('name', $name)->first();
+    $posts = Post::where('author_id', $user->id)->get();
+    $categories = Category::all();
 
-  	return view('content.profiles.index')->withUser($user);
+  	return view('content.profiles.index', compact(['user', 'posts', 'categories']));
  	}
 
  	public function update(Request $request){

@@ -38,7 +38,7 @@
         <section class="section">
           <div class="columns">
             <div class="column is-8 is-offset-2">
-              <div class="content is-medium">
+              <div class="content post-content is-medium">
                 <p>{!! $post->content !!}</p>
               </div>
             </div>

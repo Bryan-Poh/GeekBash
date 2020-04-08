@@ -34,7 +34,7 @@ class HomeController extends Controller
         $posts = Post::all();
         $users = User::all();
         $categories = Category::all();
-        $recent_posts = Post::orderBy('published_at', 'desc')->take(4)->get();
+        $recent_posts = Post::orderBy('published_at', 'desc')->take(15)->get();
 
         return view('home', compact(['posts', 'users', 'categories','recent_posts']));
     }

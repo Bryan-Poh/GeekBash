@@ -7,15 +7,21 @@
       <img src="{{ asset('images/geekbash-icon.png') }}" alt="GeekBash Logo">
     </a>
 
-    <a role="button" class="navbar-burger burger m-t-10" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+      {{-- <a role="button" class="navbar-burger burger m-t-10" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"> --}}
+      @if(Auth::guest())
+        <div class="m-r-25 m-t-15 is-hidden-tablet" style="margin-left: auto; position: relative; display:block;">
+          <a href="{{ route('login') }}" class="button is-primary">Login</a>
+        </div>
+      @else
+        <a role="button" class="navbar-burger burger m-t-10" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <img src="{{ asset('/images/default.png') }}" alt="Profile Picture" width="150px" height="150px" style="border-radius: 100%">
+      @endif
+    </a>
     </a>
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start has-text-centered">
+    <div class="navbar-start has-text-centered is-hidden-mobile">
       <a class="navbar-item ">
         Featured
       </a>
@@ -27,6 +33,10 @@
       <a class="navbar-item ">
         Tech
       </a>
+
+      <a class="navbar-item ">
+        Reviews
+      </a>
     </div>
 
     <div class="navbar-end">
@@ -36,14 +46,14 @@
 						<a href="{{ route('login') }}" class="button is-primary">Login</a>
 						<a href="{{ route('register') }}" class="button is-light">Register for an account</a>
 					@else
-            <div class="current-date m-r-20">
+            <div class="current-date m-r-20 is-hidden-mobile">
               {{ now()->format('l, d F Y') }}
               <span class="icon">
                 <i class="far fa-calendar-alt"></i>
               </span>
             </div>
 
-						<div class="navbar-item has-dropdown is-hoverable">
+						<div class="navbar-item has-dropdown is-hoverable has-text-right">
 			        <a class="navbar-link">
 			          Hey {{Auth::user()->name}}
 			        </a>
@@ -77,6 +87,16 @@
     </div>
   </div>
 </nav>
+
+<div class="tabs is-centered is-hidden-tablet">
+  <ul>
+    <li><a>Home</a></li>
+    <li><a>Featured</a></li>
+    <li><a>Tutorials</a></li>
+    <li><a>Tech</a></li>
+    <li><a>Reviews</a></li>
+  </ul>
+</div>
 
 @section('scripts')
 <script>
