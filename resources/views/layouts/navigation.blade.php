@@ -24,14 +24,6 @@
       <a class="navbar-item" href="{{ route('corona') }}">
         Corona Tracker
       </a>
-
-      <a class="navbar-item ">
-        Categories
-      </a>
-
-      <a class="navbar-item ">
-        About
-      </a>
     </div>
 
     <div class="navbar-end">
@@ -90,8 +82,6 @@
   <ul>
     <li><a>Home</a></li>
     <li><a>Covid-19 Tracker</a></li>
-    <li><a>Categories</a></li>
-    <li><a>About</a></li>
   </ul>
 </div>
 

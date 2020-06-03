@@ -11,7 +11,6 @@
 
             <div class="level-right">
                 <a href="" class="level-item">Home</a> 
-                <a href="" class="level-item">Support</a> 
                 <a href="" class="level-item">Contact Us</a>
             </div>           
         </div>  
@@ -19,12 +18,11 @@
         <div class="columns">
             <div class="column">
                 <div class="buttons">
-                    <a href="" class="button"><i class="fab fa-github-alt"></i></a>
-                    <a href="" class="button"><i class="far fa-envelope"></i></a>
+                    <a href="https://github.com/Bryan-Poh" class="button" target="_blank"><i class="fab fa-github-alt"></i></a>
                 </div>
             </div>
             <div class="column has-text-centered has-text-right-tablet">
-                <p class="subtitle is-6">&copy;GeekBash | twentytwenty  - <a href="#">Bryan Poh</a></p>
+                <p class="subtitle is-6">&copy;GeekBash | twentytwenty  - <a href="https://github.com/Bryan-Poh" target="_blank">Bryan Poh</a></p>
             </div> 
         </div>
      </div>          

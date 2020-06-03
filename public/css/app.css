@@ -35810,7 +35810,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .button.is-primary {
-  background-color: #f2c333;
+  background-color: #f2c333 !important;
 }
 
 .is-secondary {

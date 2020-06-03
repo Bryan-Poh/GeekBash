@@ -68,7 +68,7 @@ body::-webkit-scrollbar-thumb{
 }
 
 .button.is-primary{
-	background-color: #f2c333;
+	background-color: #f2c333 !important;
 }
 
 .is-secondary{
@@ -182,3 +182,7 @@ body::-webkit-scrollbar-thumb{
     line-height: 18px;
     font-weight: 300;
 }
+
+// ---------------- //
+// Contact Us Form //
+// -------------- //

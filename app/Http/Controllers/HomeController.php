@@ -52,4 +52,9 @@ class HomeController extends Controller
     {
         return view("content.corona.corona");
     }
+
+    public function contactpage()
+    {
+        return view("content.contact-us");
+    }
 }

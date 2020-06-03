@@ -26,12 +26,12 @@
             </div>
             <hr style="height: 0.25%"/>
             <figure class="image is-16by9">
-              {{-- <img src="{{ asset('storage/image/'.$post->image) }}" alt=""> --}}
-              {{-- <img src="{{ asset('storage/'.$post->image) }}" alt=""> --}}
-              {{-- <img src="{{ asset('storage/'.$post->image) }}" alt=""> --}}
               <img src="{{ Storage::url("{$post->image}") }}" alt="Article Image">
-              {{-- <img src="{{ asset('/images/default.png') }}" alt=""> --}}
             </figure>
+            
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="addthis_inline_share_toolbox m-t-10"></div>
+            
           </div>
         </div>
 
@@ -49,4 +49,11 @@
     </div>
   </section>
 </div>
+
+
+@endsection
+
+@section('scripts')
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ed75d2bc9018bcd"></script>
 @endsection

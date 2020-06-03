@@ -103,6 +103,7 @@
 <script src="{{ asset('js/coronatracker.js') }}"></script>
 <script>
 	$(".article").click(function() {
+    $('.article').css('cursor', 'pointer'); // 'default' to revert
     var link = $(this).find("a");
 
     link.attr("target", "_blank");

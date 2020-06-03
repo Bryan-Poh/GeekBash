@@ -1,58 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container m-t-20">
-  <!-- <div class="tile is-ancestor">
-    <div class="tile is-4 is-vertical is-parent">
-      <div class="tile is-child box">
-          <figure class="image">
-            <a href=""><img src="../images/blank-post.png" alt=""></a>
-          </figure>  
-      </div>
-      <div class="tile is-child box">
-          <figure class="image">
-            <a href=""><img src="../images/blank-post.png" alt=""></a>
-          </figure> 
-      </div>
-    </div>
-    <div class="tile is-parent">
-      <div class="tile is-child box">
-        <figure class="image">
-            <a href=""><img src="../images/blank-post.png" alt=""></a>
-          </figure> 
-      </div>
-    </div>
-  </div> -->
-  
-  <!-- newsletter -->
-  <!-- <section class="section">
-    <div class="columns">
-      <div class="column is-10 is-offset-1">
-        <div class="container has-text-centered is-fluid">
-          <div class="hero is-light">
-            <div class="hero-body">
-              <h2 class="title is-4">Sign up for our newsletter</h2>
-                <div class="column is-6 is-offset-3">
-                  <div class="field has-addons has-addons-centered">
-                    <div class="control is-expanded">
-                      <input class="input " type="text" placeholder="Email address">
-                    </div>
-                    <div class="control">
-                      <a class="button is-info">
-                        Subscribe
-                      </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  
-
+<div class="container m-t-20">  
   <!-- Articles -->
   <div class="container">
     <!--  <div class="columns is-multiline">
@@ -81,9 +30,9 @@
 
     <div class="columns">
       {{-- main column --}}
-      <div class="column is-two-thirds is-multiline">
+      <div class="column is-multiline">
         {{-- <h1 class="title is-4">RECENT POSTS</h1> --}}
-        @foreach($recent_posts as $recent)
+        <!-- @foreach($recent_posts as $recent)
           <article class="column is-12">
             <div class="box">
               <div class="column is-8">
@@ -107,28 +56,45 @@
               </div>
             </div>
           </article>
+              @endforeach -->
+
+      @foreach($recent_posts as $recent)
+        <article class="media article">
+          <figure class="media-left">
+            <p class="image is-16by9" style="width: 256px">
+              <img src="{{ Storage::url("{$recent->image}") }}">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              @foreach($categories as $category)
+                @if($recent->category_id == $category->id)
+                  <span class="tag is-link is-light">{{ $recent->category->name }}</span>
+                  <p class="title is-5 is-spaced m-t-10">
+                    <a href="{{ route('show_post', $recent->slug) }}"><strong>{{ $recent->title }}</strong></a>
+
+                    <br>
+
+                    <p>{{ substr(strip_tags($recent->content),0, 80) }}{{ strlen(strip_tags($recent->content)) > 80 ? '...' : ""}}</p>
+                  </p>
+                @endif
+              @endforeach
+        
+              @foreach($users as $user)
+                @if($recent->author_id == $user->id)
+                  <p class="subtitle is-7 author"><a href="{{ route('profile.index', $user->name) }}">{{ $user->name }}</a> <span class="dotDivider">•</span> {{ $recent->published_at->format('d F Y') }}</p>
+                @endif
+              @endforeach
+            </div>
+          </div>
+        </article>
       @endforeach
 
 
-        {{-- <div class="card">
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4">John Smith</p>
-                <p class="subtitle is-6">@johnsmith</p>
-              </div>
-              <div class="media-right">
-                <figure class="image">
-                  <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div> --}}
       </div>
 
       {{-- side column --}}
-      <div class="column">
+      <!-- <div class="column">
         <p class="title is-4">CATEGORIES</p>
         @foreach($categories as $category)
           @foreach($posts as $post)
@@ -136,9 +102,31 @@
             @break
           @endforeach
         @endforeach
-      </div>
+      </div> -->
     </div>
   </div> <!-- end container -->
 
 
+@endsection
+
+@section('scripts')
+<script>
+  $(".article").click(function() {
+    $('.article').css('cursor', 'pointer'); // 'default' to revert
+    var link = $(this).find("a");
+
+    link.attr("target", "_blank");
+    window.open(link.attr("href"));
+
+    return false;
+  });
+  $(".author").click(function() {
+    $('.author').css('cursor', 'pointer'); // 'default' to revert
+
+    link.attr("target", "_blank");
+    window.open($(this).attr("href"));
+
+    return false;
+  });
+</script>
 @endsection

@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/coronatracker', 'HomeController@corona')->name('corona');
+Route::get('/contact-us', 'HomeController@contactpage')->name('contactpage');
 
 Route::get('/post/{slug}', 'HomeController@show')->name('show_post');
 
