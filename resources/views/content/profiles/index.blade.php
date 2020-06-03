@@ -51,7 +51,7 @@
         </div>
         
         @foreach($posts as $post)
-        <p class="title is-4 is-bold m-t-20 m-l-10">{{ $post->count() }} Articles By {{ $user->name }}</p>
+        <p class="title is-4 is-bold m-t-20 m-l-10">{{ App\Post::where('author_id', Auth::user()->id)->count() }} Articles By {{ $user->name }}</p>
         @break
         @endforeach
 
