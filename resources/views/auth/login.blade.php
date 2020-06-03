@@ -26,14 +26,21 @@
             @if ($errors->has('password'))
               <p class="help is-danger">{{$errors->first('password')}}</p>
             @endif
-
           </div>
 
           <button class="button is-success is-outlined is-fullwidth m-t-30">Log In</button>
+
+          <div class="is-divider" data-content="OR"></div>
+          
+          <div class="has-text-centered">
+            <p>
+              <a href="{{ route('register') }}">Register An Account</a><span class="p-l-10 p-r-10">•</span><a href="" class="is-muted">Forgot Your Password?</a>
+            </p> 
+          </div>
+
         </form>
       </div> <!-- end of .card-content -->
     </div> <!-- end of .card -->
-    <h5 class="has-text-centered m-t-20"><a href="#" class="is-muted">Forgot Your Password?</a></h5>
   </div>
 </div>
 @endsection

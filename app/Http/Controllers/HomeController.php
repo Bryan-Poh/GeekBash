@@ -47,4 +47,9 @@ class HomeController extends Controller
 
         return view('content.posts.show', compact(['post', 'users', 'categories']));
     }
+
+    public function corona()
+    {
+        return view("content.corona.corona");
+    }
 }

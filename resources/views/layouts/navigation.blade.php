@@ -15,27 +15,22 @@
       @else
         <a role="button" class="navbar-burger burger m-t-10" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <img src="{{ asset('/images/default.png') }}" alt="Profile Picture" width="150px" height="150px" style="border-radius: 100%">
+        </a>
       @endif
-    </a>
-    </a>
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start has-text-centered is-hidden-mobile">
-      <a class="navbar-item ">
-        Featured
+      <a class="navbar-item" href="{{ route('corona') }}">
+        Corona Tracker
       </a>
 
       <a class="navbar-item ">
-        Tutorials
+        Categories
       </a>
 
       <a class="navbar-item ">
-        Tech
-      </a>
-
-      <a class="navbar-item ">
-        Reviews
+        About
       </a>
     </div>
 
@@ -53,13 +48,16 @@
               </span>
             </div>
 
-						<div class="navbar-item has-dropdown is-hoverable has-text-right">
-			        <a class="navbar-link">
+						<div class="navbar-item navbar-right has-dropdown is-hoverable has-text-right">
+			        <a class="navbar-link is-hidden-mobile">
 			          Hey {{Auth::user()->name}}
 			        </a>
 
 			        <div class="navbar-dropdown">
 			          <a class="navbar-item" href="{{ route('profile.index', Auth::user()->name) }}">
+                  <span class="is-hidden-tablet">
+                    {{Auth::user()->name}} -
+                  </span>
 			            Profile
 			          </a>
 			          <a class="navbar-item">
@@ -91,10 +89,9 @@
 <div class="tabs is-centered is-hidden-tablet">
   <ul>
     <li><a>Home</a></li>
-    <li><a>Featured</a></li>
-    <li><a>Tutorials</a></li>
-    <li><a>Tech</a></li>
-    <li><a>Reviews</a></li>
+    <li><a>Covid-19 Tracker</a></li>
+    <li><a>Categories</a></li>
+    <li><a>About</a></li>
   </ul>
 </div>
 

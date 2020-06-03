@@ -15,10 +15,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::get('/', 'HomeController@index')->name('home');
-
-// Route::get('/event',  'EventController@index')->name('event');
+Route::get('/coronatracker', 'HomeController@corona')->name('corona');
 
 Route::get('/post/{slug}', 'HomeController@show')->name('show_post');
 
