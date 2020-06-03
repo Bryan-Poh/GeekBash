@@ -8,6 +8,7 @@ use Auth;
 use Carbon;
 
 use App\Post;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Category;
 
@@ -112,15 +113,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $this->validateWith([
-          'title' => 'required|max:255',
-          'category_id' => 'required|integer',
-          'content' => 'required'
-      ]);
+      
+      // $this->validateWith([
+      //     'title' => 'required|max:255',
+      //     'category_id' => 'required|integer',
+      //     'content' => 'required'
+      // ]);
 
       if($request->hasFile('image')){
         $imageName = $request->image->store('public/image');
+        // dd($request);
+      }else{
+        $imageName = Storage::disk('public')->get('image/'.$request->filename.'.jpg');
       }
+
 
       $post = Post::findOrFail($id);
       $post->title = $request->title;
@@ -131,8 +137,10 @@ class PostController extends Controller
 
       $post->save();
 
+
       $posts = Post::orderBy('id', 'desc')->paginate(10);
-      return view('manage.posts.index', compact(['posts']));
+      $categories = Category::all();
+      return view('manage.posts.index', compact(['posts', 'categories']));
     }
 
     /**

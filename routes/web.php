@@ -39,11 +39,3 @@ Route::group(['middleware' => 'role:superadministrator|administrator|editor|auth
 		Route::resource('/categories', 'CategoryController');
 	});
 });
-
-// Route::group(['prefix' => 'content', 'as' => 'content.'], function () {
-// 	Route::get('/', 'ManageController@index');
-// 	Route::get('/dashboard', 'ManageController@dashboard')->name('dashboard');
-// 	Route::resource('/users', 'UserController');
-// 	Route::resource('/permissions', 'PermissionController');
-// 	Route::resource('/posts', 'PostController');
-// });

@@ -34,8 +34,8 @@
                     Choose a file…
                   </span>
                 </span>
-                <span class="file-name">
-                  {{ $post->image }}
+                <span class="file-name" name="filename">
+                  fe{{ $post->image }}
                 </span>
               </label>
             </div>
@@ -73,11 +73,11 @@
           
             
           
-          <b-field class="m-t-100">
-            <b-input type="textarea" rows="20" name="content" id="post-editor" value="{!! $post->content !!}">
-            </b-input>
-          </b-field> 
-          {{-- <textarea type="textarea" rows="20" name="content" id="post-editor" value="{!! $post->content !!}"></textarea> --}}
+         <!--  <b-field class="m-t-100">
+           <b-input type="textarea" rows="20" name="content" id="post-editor" value="{!! $post->content !!}">
+           </b-input>
+         </b-field>  -->
+          <textarea type="textarea" rows="20" name="content" id="post-editor" value="{!! $post->content !!}"></textarea>
           </b-field>
 
         </div> <!-- end of .column.is-three-quarters -->
