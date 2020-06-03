@@ -14,15 +14,6 @@ return [
         'editor' => [
             'profile' => 'r,u'
         ],
-        'author' => [
-            'profile' => 'r,u'
-        ],
-        'contributor' => [
-            'profile' => 'r,u'
-        ],
-        'subscriber' => [
-            'profile' => 'r,u'
-        ],
     ],
     'permission_structure' => [
         'cru_user' => [

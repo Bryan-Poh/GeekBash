@@ -52,12 +52,12 @@
                   </span>
 			            Profile
 			          </a>
-			          <a class="navbar-item">
-			            Notifications
-			          </a>
-			          <a class="navbar-item">
-			            Settings
-			          </a>
+			         <!--  <a class="navbar-item">
+                 Notifications
+               </a>
+               <a class="navbar-item">
+                 Settings
+               </a> -->
                 <a class="navbar-item" href="{{ route('manage.dashboard') }}">
                   Manage
                 </a>

@@ -6,25 +6,15 @@
     <ul class="menu-list">
       <li><a href="{{route('manage.dashboard')}}" class="">Dashboard</a></li>
       <li>
-        <a class="has-submenu" href="{{ route('manage.permissions.index') }}">Manage</a>
+        <a class="has-submenu">Manage</a>
         <ul class="submenu">
-          <li><a href="#" class="">Featured Posts</a></li>
           <li><a href="{{ route('manage.categories.index') }}" class="">Post Categories</a></li>
+          <li><a href="{{ route('manage.posts.index') }}" class="#">Blog Posts</a></li>
         </ul>
       </li>
     </ul>
 
-    <p class="menu-label">
-      Content
-    </p>
-    <ul class="menu-list">
-      <li><a href="{{ route('manage.posts.index') }}" class="#">Blog Posts</a></li>
-    </ul>
-
-    <ul class="menu-list">
-      <li><a href="#" class="#">All Blog Posts</a></li>
-    </ul>
-
+    @if(Auth::user()->name == "Superadministrator")
     <p class="menu-label">
       Administration
     </p>
@@ -38,5 +28,6 @@
         </ul>
       </li>
     </ul>
+    @endif
   </aside>
 </div>

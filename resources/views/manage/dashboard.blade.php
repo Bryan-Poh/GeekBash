@@ -33,17 +33,11 @@
 				<article class="tile is-child box">
 					@foreach($posts as $post)
 						@if($post->author_id == Auth::user()->id)
-							<p class="title">{{ $post->count() }}</p>
+							<p class="title">{{ App\Post::where('author_id', Auth::user()->id)->count() }}</p>
 							@break
 						@endif
 					@endforeach
 					<p class="subtitle">Your Blog Posts</p>
-				</article>
-			</div>
-			<div class="tile is-parent">
-				<article class="tile is-child box">
-					<p class="title">19</p>
-					<p class="subtitle">Your Total Views</p>
 				</article>
 			</div>
 		</div>

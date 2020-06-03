@@ -83,18 +83,6 @@
                 </div>
               </div>
             </div> <!-- end of widget-area -->
-            <div class="post-status-widget widget-area">
-              <div class="status">
-                <!-- <div class="status-icon">
-                  <b-icon type="fas fa-file-alt" size="is-medium"></b-icon>
-                  <ion-icon name="document"></ion-icon>
-                </div> -->
-                <div class="status-details"> 
-                  <h4><span class="status-emphasis">Draft</span> Saved</h4>
-                  <p>A Few Minutes Ago</p>
-                </div>
-              </div>
-            </div><!-- end of widget-area -->
             <div class="publish-buttons-widget widget-area">
               <div class="primary-action-button">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
